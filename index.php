@@ -16,7 +16,7 @@
 						Tablas dinamicas con Datatable y PHP
 					</div>
 					<div class="card-body">
-						<button class="btn btn-primary">Agregar nuevo</button>
+						<span class="btn btn-primary"><span class="fas fa-plus-circle"></span> Agregar nuevo</span>
 						<hr>
 						<div id="tablaDatatable">
 							
