@@ -120,7 +120,25 @@
 						alertify.error("Fallo al agregar");
 					}
 				}
-			})
+			});
+		});
+
+		$('#btnEditar').click(function(){
+			datos=$('#frmEditar').serialize();
+
+			$.ajax({
+				type: "POST",
+				data: datos,
+				url:  "procesos/editar.php",
+				success: function(r){
+					if (r==1) {
+						$('#tablaDatatable').load('tabla.php');
+						alertify.success("Editado Ok!");
+					} else {
+						alertify.error("Fallo al editar");
+					}
+				}
+			});
 		});
 	});
 </script>

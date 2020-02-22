@@ -7,7 +7,7 @@
 
 			$sql = "INSERT INTO t_juegos (nombre, anio, empresa) VALUES ('$datos[0]', '$datos[1]', '$datos[2]')";
 
-			return mysqli_query($conexion,$sql);
+			return mysqli_query($conexion, $sql);
 		}
 
 		public function obtenDatos($idjuego){
@@ -28,6 +28,19 @@
 			);
 
 			return $datos;
+		}
+
+		public function editar($datos){
+			$obj = new conectar();
+			$conexion = $obj->conexion();
+
+			$sql = "UPDATE t_juegos SET 
+				nombre	= '$datos[0]', 
+				anio	= '$datos[1]', 
+				empresa	= '$datos[2]'
+			 WHERE id_juego = '$datos[3]'";
+
+			return mysqli_query($conexion, $sql);
 		}
 	}
 
