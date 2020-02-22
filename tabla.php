@@ -45,7 +45,7 @@
 				<td class="text-center"><span class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editarDatosModal" onclick="agregaFrmActualizar('<?php echo $mostrar[0]; ?>')">
 					Editar
 				</span></td>
-				<td class="text-center"><span class="btn btn-sm btn-danger">
+				<td class="text-center"><span class="btn btn-sm btn-danger" onclick="eliminarDatos('<?php echo $mostrar[0]; ?>')">
 					Eliminar
 				</span></td>
 			</tr>

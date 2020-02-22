@@ -42,6 +42,16 @@
 
 			return mysqli_query($conexion, $sql);
 		}
+
+		public function eliminar($idjuego){
+			$obj = new conectar();
+			$conexion = $obj->conexion();
+
+			$sql = "DELETE FROM t_juegos
+			 WHERE id_juego = '$idjuego'";
+
+			return mysqli_query($conexion, $sql);	
+		}
 	}
 
 ?>

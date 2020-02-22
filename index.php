@@ -164,4 +164,26 @@
 			}
 		});
 	}
+
+	function eliminarDatos(idjuego){
+		alertify.confirm('Eliminar juego', 'Seguro que desea eliminar este juego?', function(){ 
+			
+			$.ajax({
+				type: "POST",
+				data: "idjuego=" + idjuego,
+				url: "procesos/eliminar.php",
+				success: function(r){
+					if (r==1) {
+						$('#tablaDatatable').load('tabla.php');
+						alertify.info("Eliminado ok!");
+					} else {
+						alertify.error("Fallo al eliminar");
+					}
+				}
+			});
+
+		}
+		, function(){ alertify.error('Cancelar')});
+
+	}
 </script>
