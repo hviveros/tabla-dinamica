@@ -42,10 +42,10 @@
 				<td><?php echo $mostrar[1]; ?></td>
 				<td><?php echo $mostrar[2]; ?></td>
 				<td><?php echo $mostrar[3]; ?></td>
-				<td class="text-center"><span class="btn btn-xs btn-warning">
+				<td class="text-center"><span class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editarDatosModal" onclick="agregaFrmActualizar('<?php echo $mostrar[0]; ?>')">
 					Editar
 				</span></td>
-				<td class="text-center"><span class="btn btn-xs btn-danger">
+				<td class="text-center"><span class="btn btn-sm btn-danger">
 					Eliminar
 				</span></td>
 			</tr>

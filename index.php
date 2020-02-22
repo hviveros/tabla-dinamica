@@ -16,7 +16,7 @@
 						Tablas dinamicas con Datatable y PHP
 					</div>
 					<div class="card-body">
-						<span class="btn btn-primary" id="modalNuevo"  data-toggle="modal" data-target="#agregarDatosModal">
+						<span class="btn btn-primary" id="modalNuevo" data-toggle="modal" data-target="#agregarDatosModal">
 							<span class="fas fa-plus-circle"></span> Agregar nuevo</span>
 						<hr>
 						<div id="tablaDatatable">
@@ -36,7 +36,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="agregarDatosModalLabel">Agrega nuevos juevos</h5>
+				<h5 class="modal-title" id="agregarDatosModalLabel">Agrega nuevos juegos</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -59,6 +59,40 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 					<button type="button" id="btnAgregar" class="btn btn-primary">Agregar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="editarDatosModal" tabindex="-1" role="dialog" aria-labelledby="editarDatosModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="editarDatosModalLabel">Editar juegos</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form action="" id="frmEditar" class="form">
+				<div class="modal-body">
+					<input type="hidden" id="idjuego" name="idjuego">
+					<div class="form-group">
+						<label for="nombreU">Nombre</label>
+						<input type="text" class="form-control input-sm" id="nombreU" name="nombreU">
+					</div>
+					<div class="form-group">
+						<label for="anioU">Anho</label>
+						<input type="text" class="form-control input-sm" id="anioU" name="anioU">
+					</div>
+					<div class="form-group">
+						<label for="empresaU">Empresa</label>
+						<input type="text" class="form-control input-sm" id="empresaU" name="empresaU">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" id="btnEditar" class="btn btn-warning" >Editar</button>
 				</div>
 			</form>
 		</div>
@@ -95,4 +129,21 @@
 	$(document).ready(function(){
 		$('#tablaDatatable').load('tabla.php');
 	})
+</script>
+
+<script type="text/javascript">
+	function agregaFrmActualizar(idjuego){
+		$.ajax({
+			type: "POST",
+			data: "idjuego=" + idjuego,
+			url: "procesos/obtenDatos.php",
+			success: function(r){
+				datos=jQuery.parseJSON(r);
+				$('#idjuego').val(datos['id_juego']);
+				$('#nombreU').val(datos['nombre']);
+				$('#anioU').val(datos['anio']);
+				$('#empresaU').val(datos['empresa']);
+			}
+		});
+	}
 </script>
