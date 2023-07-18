@@ -3,20 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tablas dinamicas con Datatable y PHP</title>
-	<?php 
-		require_once "scripts.php";
-	?>
+
+	<!-- css Bootstrap 5.3.0 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<!-- js Bootstrap 5.3.0 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+	<!-- jQuery 3.7.0 -->
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+	<!-- alertify js && css -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js" integrity="sha512-JnjG+Wt53GspUQXQhc+c4j8SBERsgJAoHeehagKHlxQN+MtCCmFDghX9/AcbkkNRZptyZU4zC8utK59M5L45Iw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.css" integrity="sha512-MpdEaY2YQ3EokN6lCD6bnWMl5Gwk7RjBbpKLovlrH6X+DRokrPRAF3zQJl1hZUiLXfo2e9MrOt+udOnHCAmi5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- dataTables -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css">
+	<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
+	
 </head>
 <body>
 	<div class="container">
-		<div class="row">
+		<div class="row py-3">
 			<div class="col-sm-12">
 				<div class="card text-left">
 					<div class="card-header">
 						Tablas dinamicas con Datatable y PHP
 					</div>
 					<div class="card-body">
-						<span class="btn btn-primary" id="modalNuevo" data-toggle="modal" data-target="#agregarDatosModal">
+						<span class="btn btn-primary" id="modalNuevo" data-bs-toggle="modal" data-bs-target="#agregarDatosModal">
 							<span class="fas fa-plus-circle"></span> Agregar nuevo</span>
 						<hr>
 						<div id="tablaDatatable">
@@ -24,7 +39,7 @@
 						</div>
 					</div>
 					<div class="card-footer text-muted">
-						@hviveros
+						Créditos a <a href="https://www.youtube.com/playlist?list=PLoRfWwOOv4jyR6jOLZY5biv5H0Qguq8Ea" title="Facultad Autodidacta" target="_blank">Facultad Autodidacta</a>
 					</div>
 				</div>
 			</div>
@@ -37,7 +52,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="agregarDatosModalLabel">Agrega nuevos juegos</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -57,7 +72,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 					<button type="button" id="btnAgregar" class="btn btn-primary">Agregar</button>
 				</div>
 			</form>
@@ -70,7 +85,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="editarDatosModalLabel">Editar juegos</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
@@ -91,7 +106,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 					<button type="button" id="btnEditar" class="btn btn-warning" >Editar</button>
 				</div>
 			</form>
