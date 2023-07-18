@@ -1,5 +1,5 @@
-create database tabladinamica;
-	use tabladinamica;
+create database up_tabla_dinamica;
+	use up_tabla_dinamica;
 
 	create table t_juegos (id_juego int auto_increment, 
 		nombre varchar(150), 
